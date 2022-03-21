@@ -1,0 +1,39 @@
+﻿@page
+@model Lab_05.Pages.AnswerImages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AnswerImage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" value="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="custom-radio">
+                    @Html.RadioButtonFor(model => model.AnswerImage.Question, "Computer")
+                    What will the computers look like in 20 years?
+
+                    @Html.RadioButtonFor(model => model.AnswerImage.Question, "Earth")
+                    What will the earth look like in 20 years?
+                </div>
+            <div class="btn btn-sm float-left"><input name="files" type="file"></div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
